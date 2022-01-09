@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background-color: yellow;
+    height: 100%;
+
+    .left-menu{
+        height: 100%;
+        width: 15%;
+        background-color: aqua;
+
+        .conversation-card{
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: solid 3px violet;
+            &:hover{
+                background-color: violet;
+            }
+        }
+    }
+
+    #current-conversation{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        #messages-window{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: green;
+            height: 80%;
+        }
+
+        #add-message{
+            display: flex;
+            align-items: center;
+            height: 20%;
+            padding-left: 25px;
+
+            #text-container{
+                height: 30px;
+                width: 50%;
+                transition: none;
+                #text-message{
+                    transition: none;
+                    min-width: 100%;
+                    max-width: 100%;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                    resize: none;
+                    overflow: hidden;
+                    font-size: 16px;
+                    font-weight: normal;
+                    line-height: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+

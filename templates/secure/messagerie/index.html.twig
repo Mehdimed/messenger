@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagerieController!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('messagerie_index') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="left-menu conversations">
+        {% for conversation in app.user.conversations %}
+            <div class="conversation-card" data-conversation-id={{ conversation.id }} data-url="{{ path('messagerie_conversation', {'conversation': conversation.id}) }}" data-url-message="{{ path('messagerie_conversation_ajout_message', {'conversation': conversation.id}) }}">
+                <h4>{{conversation.titre}}</h4>
+            </div>
+        {% endfor %}
+        </div>
+
+        <div id="current-conversation">
+            <div id="messages-window"></div>
+            <form id="add-message" action="">
+                <div id="text-container">
+                    <textarea name="text-message" id="text-message"></textarea>
+                </div>
+                
+                <button type="submit">Envoyer</button>
+                <div id="lines"></div>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ encore_entry_script_tags('messagerie_index') }}
+
+{% endblock %}

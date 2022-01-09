@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use DateTimeZone;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
@@ -19,24 +21,33 @@ class Message
 
     /**
      * @ORM\Column(type="string", length=510)
+     * @Groups({"message:read", "conversation:read"})
      */
     private $message;
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Groups({"message:read", "conversation:read"})
      */
     private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="messages")
+     * @Groups({"message:read", "conversation:read"})
      */
     private $emetteur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Conversation::class, inversedBy="messages")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"message:read"})
      */
     private $conversation;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable('now',new DateTimeZone('Europe/Paris'));
+    }
 
     public function getId(): ?int
     {

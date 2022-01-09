@@ -7,6 +7,7 @@ use DateTimeZone;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ConversationRepository::class)
@@ -17,31 +18,37 @@ class Conversation
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"conversation:read", "message:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"conversation:read", "message:read"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"conversation:read", "message:read"})
      */
     private $isArchive;
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Groups({"conversation:read", "message:read"})
      */
     private $createdAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, inversedBy="conversations")
+     * @Groups({"conversation:read"})
      */
     private $participants;
 
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="conversation", orphanRemoval=true)
+     * @Groups({"conversation:read"})
      */
     private $messages;
 
