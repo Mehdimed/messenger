@@ -36,25 +36,25 @@
 
     if(getTextWidth($(this).val(), "normal 16px Roboto") > (($('#text-container').width() - 1) * 3) - margin){
         $('#text-message').width($('#text-container').width())
-        $('#text-container').height(120)
+        $('#text-container').height(122)
         $('#text-message').height(120)
         $('#send-message').height(120)
         console.log('4eme ligne')
     }else if(getTextWidth($(this).val(), "normal 16px Roboto") > (($('#text-container').width()) * 2) - margin){
         $('#text-message').width($('#text-container').width())
-        $('#text-container').height(90)
+        $('#text-container').height(92)
         $('#text-message').height(90)
         $('#send-message').height(90)
         console.log('3eme ligne')
     }else if(getTextWidth($(this).val(), "normal 16px Roboto") > ($('#text-container').width() - margin)){
         $('#text-message').width($('#text-container').width())
-        $('#text-container').height(60)
+        $('#text-container').height(62)
         $('#text-message').height(60)
         $('#send-message').height(60)
         console.log('2eme ligne')
     }else if(getTextWidth($(this).val(), "normal 16px Roboto") < ($('#text-container').width())){
         this.style.width = (getTextWidth($(this).val(), "normal 16px Roboto") + 10) + 'px';
-        $('#text-container').height(30)
+        $('#text-container').height(32)
         $('#text-message').height(30)
         $('#send-message').height(30)
     }
