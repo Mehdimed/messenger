@@ -20,8 +20,9 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('messagerie_index', './assets/js/secure/messagerie/index.js')
     .addStyleEntry('global', './assets/css/global.scss')
+    .addEntry('navbar', './assets/js/components/navbar.js')
+    .addEntry('messagerie_index', './assets/js/secure/messagerie/index.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

@@ -1,0 +1,27 @@
+{{ encore_entry_link_tags('navbar') }}
+
+<div id="navbar">
+    <a id="logo" href="{{ path('home')}}">
+        Messenger
+    </a>
+
+    <div id="routes">
+        {% if app.user %}
+            <div class="route">
+                <a href="{{ path('messagerie')}}">messagerie</a>
+            </div>
+            <div class="route">
+                <a href="{{ path('logout')}}">déconnexion</a>
+            </div>
+        {% else %}
+        <div class="route">
+            <a href="{{ path('register')}}">inscription</a>
+        </div>
+        <div class="route">
+            <a href="{{ path('login')}}">connexion</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{{ encore_entry_script_tags('navbar') }}

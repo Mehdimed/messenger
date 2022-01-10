@@ -26,5 +26,44 @@
     
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }
+
+  export function calculInputSize(){
+    this.style.width = getTextWidth($(this).val(), "normal 16px Roboto") + 'px';
+    let margin = 0;
+
+    console.log('width du container : ' + $('#text-container').width())
+    console.log('width du texte : ' + getTextWidth($(this).val(), "normal 16px Roboto"))
+
+    if(getTextWidth($(this).val(), "normal 16px Roboto") > (($('#text-container').width() - 1) * 3) - margin){
+        $('#text-message').width($('#text-container').width())
+        $('#text-container').height(120)
+        $('#text-message').height(120)
+        $('#send-message').height(120)
+        console.log('4eme ligne')
+    }else if(getTextWidth($(this).val(), "normal 16px Roboto") > (($('#text-container').width()) * 2) - margin){
+        $('#text-message').width($('#text-container').width())
+        $('#text-container').height(90)
+        $('#text-message').height(90)
+        $('#send-message').height(90)
+        console.log('3eme ligne')
+    }else if(getTextWidth($(this).val(), "normal 16px Roboto") > ($('#text-container').width() - margin)){
+        $('#text-message').width($('#text-container').width())
+        $('#text-container').height(60)
+        $('#text-message').height(60)
+        $('#send-message').height(60)
+        console.log('2eme ligne')
+    }else if(getTextWidth($(this).val(), "normal 16px Roboto") < ($('#text-container').width())){
+        this.style.width = (getTextWidth($(this).val(), "normal 16px Roboto") + 10) + 'px';
+        $('#text-container').height(30)
+        $('#text-message').height(30)
+        $('#send-message').height(30)
+    }
+
+    if(getTextWidth($(this).val(), "normal 16px Roboto") > ($('#text-container').width()) * 4){
+        this.style.overflowY = 'visible';
+    }else{
+        this.style.overflowY = 'hidden';
+    }
+}
   
   // console.log(getTextWidth("hello there!", "bold 12pt arial"));  // close to 86

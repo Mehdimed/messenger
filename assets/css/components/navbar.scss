@@ -1,0 +1,25 @@
+#navbar{
+    background-color: violet;
+    position: absolute;
+    display: flex;
+    height: 45px;
+    width: 100vw;
+    max-height: 45px;
+    align-items: center;
+
+    #logo{
+        padding: 0 10px;
+    }
+
+    #routes{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+
+        .route{
+            
+        }
+    }
+}
