@@ -21,34 +21,9 @@
 
 
             <div id="messages-window">
-                <div id="titre-conversation">Un titre</div>
+                <div id="titre-conversation"></div>
 
                 <div id="messages">
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message right">voici un long long long long long long long long long long long long long long messagelong long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long </div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message left">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message right">voici un message</div>
-                    <div class="message left">voici un message</div>
                 </div>
             </div>
 
@@ -68,6 +43,10 @@
 
 
 {% block javascripts %}
+
+    <script>
+        const usernameUser = {{ app.user.username | json_encode() | raw }}
+    </script>
 
     {{ encore_entry_script_tags('messagerie_index') }}
 

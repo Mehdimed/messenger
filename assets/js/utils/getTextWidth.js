@@ -31,9 +31,6 @@
     this.style.width = getTextWidth($(this).val(), "normal 16px Roboto") + 'px';
     let margin = 0;
 
-    console.log('width du container : ' + $('#text-container').width())
-    console.log('width du texte : ' + getTextWidth($(this).val(), "normal 16px Roboto"))
-
     if(getTextWidth($(this).val(), "normal 16px Roboto") > (($('#text-container').width() - 1) * 3) - margin){
         $('#text-message').width($('#text-container').width())
         $('#text-container').height(122)
