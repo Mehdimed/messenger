@@ -15,7 +15,6 @@ class HomeController extends AbstractController
      */
     public function index(EntityManagerInterface $em): Response
     {
-        // ca commit sec ici
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
